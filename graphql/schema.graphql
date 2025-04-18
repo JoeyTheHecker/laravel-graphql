@@ -5,6 +5,10 @@ type User {
 }
 
 type Query {
-    users: [User!] @all
+    users: [User!] @paginate
     user(id: ID! @eq): User @find
+}
+
+type Mutation {
+    createUser(name: String!, email: String!, password: String!): User! @create
 }
